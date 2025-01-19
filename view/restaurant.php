@@ -68,7 +68,7 @@ include "../Model/db.php";
                     echo "<td>" . htmlspecialchars($row['email']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['address']) . "</td>";
                     // Using r.title as query parameter (URL-encoded) View dishes 
-                    echo "<td><a href='Dishes.php?restaurant_title=" . urlencode($row['title']) . "'>Dishes</a></td>";
+                    echo "<td><a href='../view/Dishes.php?restaurant_title=" . urlencode($row['title']) . "'>Dishes</a></td>";
                     echo "</tr>";
                 }
             } else {
