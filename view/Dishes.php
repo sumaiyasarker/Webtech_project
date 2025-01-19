@@ -1,5 +1,6 @@
 <?php
 include "../Model/db.php";
+session_start();
 
 if (isset($_GET['restaurant'])) {
     $restaurant = $_GET['restaurant'];
@@ -36,7 +37,14 @@ if (isset($_GET['restaurant'])) {
 <body>
 
     <h1><?php echo $pageTitle; ?></h1>
-
+    <?php if (isset($_SESSION['id'])): ?>
+        <a href="../view/allreviews.php">
+        <button>All Reviews</button>
+        </a>
+    <?php else: ?>
+        <h2>Leave a Review</h2>
+        <p>Please <a href="../view/login.php">log in</a> to leave a review.</p>
+    <?php endif; ?>
     <?php
     if ($result->num_rows > 0)
     {
@@ -54,17 +62,31 @@ if (isset($_GET['restaurant'])) {
                         <p>" . htmlspecialchars($row['slogan']) . "</p>
                         <p>Price: $ " . number_format($row['price'], 2) . "</p>
                       </div><hr>";
-            }
-            else
-            {
+            // Fetch the order ID for the logged-in user
+                if (isset($_SESSION['id'])) {
+                    $customer_id = $_SESSION['id'];
+                    $order_result = getOrderByCustomerId($customer_id); // Function to get order by customer ID
+                    if ($order_result) {
+                        $order_id = $order_result['o_id']; // Assuming this returns the order ID
+                        echo "<form method='GET' action='../view/reviews.php'>
+                                <input type='hidden' name='dish_id' value='" . $row['d_id'] . "'>
+                                <input type='hidden' name='order_id' value='" . $order_id . "'>
+                                <button type='submit'>Leave a Review</button>
+                              </form>";
+                    } else {
+                        echo "<p>No orders found for this user.</p>";
+                    }
+                }
+
+                echo "</div><hr>";
+            } else {
                 echo "<div>Error: Missing d_id for one of the dishes.</div><hr>";
             }
         }
-    }
-    else
-    {
+    } else {
         echo "No dishes available.";
     }
+            
 
     // Close the connection
     closeCon($conn);
