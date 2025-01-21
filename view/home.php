@@ -5,30 +5,34 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <title>Home Page</title>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <h2>Welcome to the Home Page</h2>
-
-    <h3>Our Restaurants</h3>
-    <div>
-        <a href="../view/Dishes.php?restaurant=Pakistan">
-            <img src="../photos/resturant1.png" alt="Pakistani Restaurant" width="200" style="margin: 10px;">
+    <div class="top-buttons">
+        <a href="profile.php">
+            <button class="profile-button">Profile</button>
         </a>
-        <a href="../view/Dishes.php?restaurant=Indian">
-            <img src="../photos/returant2.png" alt="Indian Restaurant" width="200" style="margin: 10px;">
-        </a>
-        <a href="../view/Dishes.php?restaurant=Turkish">
-            <img src="../photos/resturant3.png" alt="Turkish Restaurant" width="200" style="margin: 10px;">
+        <a href="../control/customer.php">
+            <button class="registration-button">Register</button>
         </a>
     </div>
 
-    
-    
-        <a href="profile.php">
-            <button>Profile</button>
-        </a>
-    
+    <div class="content-container">
+        <h2>Welcome to the Home Page</h2>
+        <h3>Our Restaurants</h3>
+
+        <div class="restaurants-container">
+            <a href="../view/Dishes.php?restaurant=Pakistan">
+                <img src="../photos/resturant1.png" alt="Pakistani Restaurant" class="restaurant-img">
+            </a>
+            <a href="../view/Dishes.php?restaurant=Indian">
+                <img src="../photos/returant2.png" alt="Indian Restaurant" class="restaurant-img">
+            </a>
+            <a href="../view/Dishes.php?restaurant=Turkish">
+                <img src="../photos/resturant3.png" alt="Turkish Restaurant" class="restaurant-img">
+            </a>
+        </div>
+    </div>
 </body>
 </html>
