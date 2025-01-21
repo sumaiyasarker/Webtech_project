@@ -1,12 +1,13 @@
 /* Reset default margin and padding */
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* Apply styling to the body */
-body {
+body
+ {
     background-color: black;
     color: gold;
     font-family: Arial, sans-serif;
@@ -18,7 +19,8 @@ body {
 }
 
 /* Container for the form */
-.form-container {
+.form-container 
+{
     background-color: #333;
     padding: 30px;
     border-radius: 8px;
@@ -28,14 +30,16 @@ body {
 }
 
 /* Style for headings */
-h2 {
+h2 
+{
     color: gold;
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Style for h3 headings */
-h3 {
+h3 
+{
     color: #B2BEB5; 
     margin-bottom: 15px;
 }
@@ -87,7 +91,8 @@ button:hover, input[type="submit"]:hover
 }
 
 /* Message box styling */
-.message {
+.message 
+{
     padding: 12px;
     margin: 20px 0; 
     border-radius: 5px;
@@ -146,14 +151,16 @@ button:hover, input[type="submit"]:hover
 }
 
 /* Container for the entire content */
-.content-container {
+.content-container 
+{
     text-align: center;
     padding: 20px;
     margin-top: 60px; 
 }
 
 /* Container for the restaurant images */
-.restaurants-container {
+.restaurants-container 
+{
     display: flex;
     flex-direction: row; /* Arrange images in a row */
     justify-content: center; /* Center images horizontally */
@@ -167,7 +174,8 @@ button:hover, input[type="submit"]:hover
 }
 
 /* Style for the restaurant image captions */
-.restaurants-container a {
+.restaurants-container a 
+{
     display: block;
     font-size: 40px; /* Increased font size for captions */
     color: gold;
@@ -215,6 +223,7 @@ button:hover, input[type="submit"]:hover
 }
 
 /* Button hover effect */
-.quantity-button:hover {
+.quantity-button:hover
+ {
     background-color: #555;
 }
