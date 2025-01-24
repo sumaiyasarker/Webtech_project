@@ -10,10 +10,10 @@ session_start();
 </head>
 <body>
     <div class="top-buttons">
-        <a href="profile.php">
+        <a href="profile_settings.php">
             <button class="profile-button">Profile</button>
         </a>
-        <a href="../control/customer.php">
+        <a href="registration_form.php">
             <button class="registration-button">Register</button>
         </a>
     </div>

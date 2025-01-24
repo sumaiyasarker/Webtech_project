@@ -1,0 +1,54 @@
+<?php
+include "../Model/db.php"; 
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $error_message = "";
+    $success_message = "";
+
+    
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+    {
+        $error_message .= "<div class='message error'>Invalid email format.</div>";
+    }
+
+    
+    if (empty($password)) 
+    {
+        $error_message .= "<div class='message error'>Password is required.</div>";
+    }
+
+    
+    if (!empty($error_message))
+    {
+        echo $error_message;
+    } 
+    else 
+    {
+       
+        $loginResult = verifyLogin($email, $password);
+
+        if ($loginResult['success'])
+        {
+            $user = $loginResult['user'];
+
+            
+            $_SESSION['email'] = $email;
+            $_SESSION['id'] = $user['id'];
+
+            
+            header("Location: ../view/home.php");
+            exit();
+        } 
+        else 
+        {
+            
+            $error_message = "<div class='message error'>" . $loginResult['message'] . "</div>";
+            echo $error_message;
+        }
+    }
+}
+?>
