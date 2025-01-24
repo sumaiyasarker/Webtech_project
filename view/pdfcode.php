@@ -52,14 +52,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
             window.location.href = 'user_dashboard.php';
         </script>";
         exit();
-    } else {
+    } 
+    else 
+    {
         echo "<script>
             alert('Error placing order. Please try again.');
             window.location.href = 'order_page.php';
         </script>";
         exit();
     }
-} else {
+} 
+else
+{
     // Redirect if accessed directly
     header("Location: order_page.php");
     exit();

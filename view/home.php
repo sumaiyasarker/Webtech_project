@@ -13,9 +13,17 @@ session_start();
         <a href="profile_settings.php">
             <button class="profile-button">Profile</button>
         </a>
-        <a href="registration_form.php">
-            <button class="registration-button">Register</button>
-        </a>
+        <!-- Dropdown for Register using <select> -->
+        <form action="../control/register_redirect.php" method="get">
+            <label for="role">Choose your role:</label>
+            <select name="role" id="role">
+                <option value="customer">Customer</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+                <option value="rider">Rider</option> 
+            </select>
+            <button type="submit" class="registration-button">Register</button>
+        </form>
     </div>
 
     <div class="content-container">

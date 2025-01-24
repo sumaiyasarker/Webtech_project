@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+
+if (isset($_SESSION['error_message'])) 
+{
+    $error_message = $_SESSION['error_message'];  
+    unset($_SESSION['error_message']);  
+} 
+else 
+{
+    $error_message = ""; 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +24,15 @@
 <body>
     <div class="form-container">
         <h2>Customer Login</h2>
+
+        <!-- Display error message if any -->
+        <?php
+        if (!empty($error_message)) 
+        {
+            echo $error_message;  
+        }
+        ?>
+
         <form action="../control/login_customer.php" method="POST">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required><br><br>

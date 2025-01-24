@@ -9,45 +9,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $error_message = "";
     $success_message = "";
 
-    
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
     {
         $error_message .= "<div class='message error'>Invalid email format.</div>";
     }
 
-    
+    // Check if password is empty
     if (empty($password)) 
     {
         $error_message .= "<div class='message error'>Password is required.</div>";
     }
 
-    
-    if (!empty($error_message))
+    // If there are any error messages, store them in session and redirect back to the form
+    if (!empty($error_message)) 
     {
-        echo $error_message;
+        $_SESSION['error_message'] = $error_message;  // Store error message in session
+        header("Location: ../view/login_form.php");  // Redirect back to login form
+        exit();
     } 
     else 
     {
-       
+        // Verify login credentials (Assume verifyLogin() is a function to check the login)
         $loginResult = verifyLogin($email, $password);
 
-        if ($loginResult['success'])
+        if ($loginResult['success']) 
         {
             $user = $loginResult['user'];
 
-            
             $_SESSION['email'] = $email;
             $_SESSION['id'] = $user['id'];
 
-            
             header("Location: ../view/home.php");
             exit();
         } 
         else 
         {
-            
-            $error_message = "<div class='message error'>" . $loginResult['message'] . "</div>";
-            echo $error_message;
+            // If login fails, store the error message and redirect back to login form
+            $_SESSION['error_message'] = "<div class='message error'>" . $loginResult['message'] . "</div>";
+            header("Location: ../view/login_form.php");
+            exit();
         }
     }
 }
