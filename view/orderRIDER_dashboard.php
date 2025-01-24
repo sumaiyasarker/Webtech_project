@@ -1,3 +1,14 @@
+<?php
+session_start();
+include "../Model/db.php";
+
+if (!isset($_SESSION['rider_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$rider_orders = getPendingOrdersForRider();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

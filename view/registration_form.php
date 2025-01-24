@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 if (isset($_SESSION['error_message'])) 
 {
     $error_message = $_SESSION['error_message']; 
@@ -11,7 +10,6 @@ else
     $error_message = []; 
 }
 
-
 if (isset($_SESSION['form_data']))
 {
     $form_data = $_SESSION['form_data']; 
@@ -20,7 +18,6 @@ else
 {
     $form_data = []; 
 }
-
 
 session_unset();
 ?>
@@ -110,6 +107,11 @@ session_unset();
                 <input type="submit" value="Register">
             </div>
         </form>
+
+        <!-- Link to login page -->
+        <div class="login-link">
+            <p>Have an account? <a href="../view/login_form.php">Login here</a></p>
+        </div>
     </div>
 </body>
 </html>
