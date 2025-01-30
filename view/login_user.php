@@ -15,4 +15,3 @@
     <p>Don't have an account? <a href="../control/user.php">Create a new account</a></p>
 </body>
 </html>
-
