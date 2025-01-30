@@ -64,3 +64,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // Retrieve customer name for the profile page
 $customer_name = profile($email);
+

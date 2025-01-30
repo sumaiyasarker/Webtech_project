@@ -52,3 +52,4 @@ if (isset($_GET['d_id']) && is_numeric($_GET['d_id'])) {
     echo "Invalid or missing dish ID.";
 }
 ?>
+
