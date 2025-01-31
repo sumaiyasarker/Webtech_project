@@ -51,4 +51,3 @@ $rider_orders = getPendingOrdersForRider();
     </div>
 </body>
 </html>
-

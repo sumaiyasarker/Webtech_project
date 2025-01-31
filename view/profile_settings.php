@@ -42,4 +42,3 @@ include "../control/profile_controller.php";
     </div>
 </body>
 </html>
-
