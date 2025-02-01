@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc();
-
+          //push
             // Verify the password
             if (password_verify($password, $row['password'])) {
                 $_SESSION['rider_id'] = $row['rider_id'];
