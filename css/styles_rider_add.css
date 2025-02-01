@@ -1,0 +1,93 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: #222;
+    color: gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Form container */
+.form-container {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Heading */
+h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: gold;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-weight: bold;
+    color: gold;
+    margin-top: 10px;
+    text-align: left;
+}
+
+/* Input fields */
+input[type="text"], input[type="email"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #444;
+    color: gold;
+    border: 1px solid #888;
+    border-radius: 5px;
+}
+
+/* Focus effect */
+input:focus, select:focus {
+    outline: none;
+    border-color: gold;
+    box-shadow: 0 0 5px gold;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background-color: gold;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: darkgoldenrod;
+}
+
+/* Back link */
+.back-link {
+    display: block;
+    margin-top: 15px;
+    color: gold;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link:hover {
+    color: darkgoldenrod;
+}
