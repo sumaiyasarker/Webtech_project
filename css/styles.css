@@ -1,13 +1,12 @@
 /* Reset default margin and padding */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* Apply styling to the body */
-body
- {
+body {
     background-color: black;
     color: gold;
     font-family: Arial, sans-serif;
@@ -19,8 +18,7 @@ body
 }
 
 /* Container for the form */
-.form-container 
-{
+.form-container {
     background-color: #333;
     padding: 30px;
     border-radius: 8px;
@@ -30,23 +28,22 @@ body
 }
 
 /* Style for headings */
-h2 
-{
-    color: gold;
+h2, h3 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Style for h3 headings */
-h3 
-{
-    color: #B2BEB5; 
+h2 {
+    color: gold;
+}
+
+h3 {
+    color: #B2BEB5;
     margin-bottom: 15px;
 }
 
 /* Style for form labels */
-label 
-{
+label {
     font-weight: bold;
     color: gold;
     margin-top: 10px;
@@ -54,11 +51,10 @@ label
 }
 
 /* Style for form inputs */
-input[type="text"], input[type="email"], input[type="password"], input[type="submit"], button 
-{
+input[type="text"], input[type="email"], input[type="password"], input[type="submit"], button, .dropdown-button {
     width: 100%;
-    padding: 12px; 
-    margin-bottom: 20px; 
+    padding: 12px;
+    margin-bottom: 20px;
     background-color: #444;
     color: gold;
     border: 1px solid #888;
@@ -66,17 +62,15 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sub
 }
 
 /* Focus effect on inputs */
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus 
-{
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
     outline: none;
     border-color: gold;
     box-shadow: 0 0 5px gold;
 }
 
 /* Style for buttons */
-button, input[type="submit"] 
-{
-    background-color: #f5f5f5; 
+button, input[type="submit"] {
+    background-color: #f5f5f5;
     color: black;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -85,14 +79,12 @@ button, input[type="submit"]
     border: none;
 }
 
-button:hover, input[type="submit"]:hover
- {
-    background-color: #e0e0e0; 
+button:hover, input[type="submit"]:hover, .dropdown-button:hover {
+    background-color: #e0e0e0;
 }
 
 /* Message box styling */
-.message 
-{
+.message {
     padding: 12px;
     margin: 20px 0; 
     border-radius: 5px;
@@ -100,105 +92,73 @@ button:hover, input[type="submit"]:hover
     text-align: center;
 }
 
-.message.success
- {
-    background-color: #28a745; 
+.message.success {
+    background-color: #28a745;
     color: white;
 }
 
-.message.error 
-{
-    background-color: #dc3545; 
+.message.error {
+    background-color: #dc3545;
     color: white;
 }
 
-.message.warning 
-{
-    background-color: #ffc107; 
+.message.warning {
+    background-color: #ffc107;
     color: black;
 }
 
-
-
-.top-buttons
- {
+/* Top buttons container */
+.top-buttons {
     position: absolute;
     top: 10px;
     right: 10px;
     display: flex;
-    gap: 20px; 
-    
-}
-
-/* Style for the profile and registration buttons */
-.profile-button, .registration-button 
-{
-    background-color: #f5f5f5; 
-    
-    color: black;
-    padding: 12px 25px; 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 18px; 
-    
-}
-
-.profile-button:hover, .registration-button:hover 
-{
-    background-color: #e0e0e0; 
+    gap: 20px;
 }
 
 /* Container for the entire content */
-.content-container 
-{
+.content-container {
     text-align: center;
     padding: 20px;
-    margin-top: 60px; 
+    margin-top: 60px;
 }
 
 /* Container for the restaurant images */
-.restaurants-container 
-{
+.restaurants-container {
     display: flex;
-    flex-direction: row; /* Arrange images in a row */
-    justify-content: center; /* Center images horizontally */
-    gap: 50px; /* Increased space between the images */
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
 }
 
 /* Style for each restaurant image */
-.restaurant-img
- {
-    width: 400px; /* Increased size of images */
+.restaurant-img {
+    width: 400px;
 }
 
 /* Style for the restaurant image captions */
-.restaurants-container a 
-{
+.restaurants-container a {
     display: block;
-    font-size: 40px; /* Increased font size for captions */
+    font-size: 40px;
     color: gold;
     text-decoration: none;
     margin-top: 10px;
     text-align: center;
 }
 
-.restaurants-container a:hover 
-{
-    color: darkgoldenrod; 
+.restaurants-container a:hover {
+    color: darkgoldenrod;
 }
+
 /* Quantity Container */
-.quantity-container 
-{
+.quantity-container {
     display: flex;
     align-items: center;
-    gap: 5px; /* Space between buttons and input */
+    gap: 5px;
 }
 
 /* Style for quantity buttons */
-.quantity-button
- {
+.quantity-button {
     background-color: #444;
     color: gold;
     border: 1px solid #888;
@@ -210,8 +170,7 @@ button:hover, input[type="submit"]:hover
 }
 
 /* Style for input field */
-.quantity-container input[type="number"] 
-{
+.quantity-container input[type="number"] {
     width: 60px;
     text-align: center;
     font-size: 16px;
@@ -223,7 +182,40 @@ button:hover, input[type="submit"]:hover
 }
 
 /* Button hover effect */
-.quantity-button:hover
- {
+.quantity-button:hover {
     background-color: #555;
 }
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu when hovering over the dropdown */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+

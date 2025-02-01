@@ -2,12 +2,14 @@
 session_start();
 include "../Model/db.php";
 
-if (!isset($_SESSION['email']) || !isset($_SESSION['id'])) {
+if (!isset($_SESSION['email']) || !isset($_SESSION['id'])) 
+{
     echo "<p>Please <a href='login.php'>log in</a> to place an order.</p>";
     exit();
 }
 
-if (isset($_GET['d_id']) && is_numeric($_GET['d_id'])) {
+if (isset($_GET['d_id']) && is_numeric($_GET['d_id'])) 
+{
     $dish_id = $_GET['d_id'];
     $dish = getDishById($dish_id);
 
@@ -45,10 +47,14 @@ if (isset($_GET['d_id']) && is_numeric($_GET['d_id'])) {
             </div>
         </body>
         </html>";
-    } else {
+    } 
+    else 
+    {
         echo "Dish not found.";
     }
-} else {
+}
+ else 
+ {
     echo "Invalid or missing dish ID.";
 }
 ?>

@@ -17,7 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']))
         
         if ($result) {
             echo json_encode(['success' => true, 'message' => 'Order accepted successfully.']);
-        } else {
+        } 
+        else 
+        {
             echo json_encode(['success' => false, 'message' => 'Failed to accept order.']);
         }
     }
@@ -28,3 +30,4 @@ else
     echo json_encode(['success' => false, 'message' => 'Invalid request.']);
 }
 ?>
+ 
