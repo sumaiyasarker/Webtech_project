@@ -7,6 +7,7 @@ require '../control/allreviews-controller.php'; // Ensure this points to your da
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles_reviews.css">
     <title>Reviews</title>
 </head>
 <body>
