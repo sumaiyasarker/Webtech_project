@@ -66,6 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update or Delete Rider</title>
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="../css/styles_rider_updel.css">
+>>>>>>> 1ce2214 (my file)
 </head>
 <body>
     <div class="form-container">
@@ -73,6 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Update a Rider</h2>
         <form action="" method="POST">
             <label for="old_name">Current Rider Name:</label>
+<<<<<<< HEAD
             <input type="text" id="old_name" name="old_name" required><br><br>
             
             <label for="name">New Rider Name:</label>
@@ -84,10 +89,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="phone">New Phone:</label>
             <input type="text" id="phone" name="phone"><br><br>
             
+=======
+            <input type="text" id="old_name" name="old_name" required>
+
+            <label for="name">New Rider Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="email">New Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="phone">New Phone:</label>
+            <input type="text" id="phone" name="phone">
+
+>>>>>>> 1ce2214 (my file)
             <label for="status">New Status:</label>
             <select id="status" name="status">
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
+<<<<<<< HEAD
             </select><br><br>
             
             <label for="vehicle">New Vehicle:</label>
@@ -95,11 +114,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label for="admin_id">Admin ID:</label>
             <input type="number" id="admin_id" name="admin_id" required><br><br>
+=======
+            </select>
+
+            <label for="vehicle">New Vehicle:</label>
+            <input type="text" id="vehicle" name="vehicle">
+
+            <label for="admin_id">Admin ID:</label>
+            <input type="number" id="admin_id" name="admin_id" required>
+>>>>>>> 1ce2214 (my file)
             
             <input type="submit" name="update_rider" value="Update Rider">
         </form>
 
         <!-- Delete Rider Section -->
+<<<<<<< HEAD
         <h2>Delete a Rider by Name</h2>
         <form action="" method="POST">
             <label for="name">Rider Name:</label>
@@ -110,5 +139,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <br>
     <a href="../View/riders.php">Back to Riders List</a>
+=======
+        <h2>Delete a Rider</h2>
+        <form action="" method="POST">
+            <label for="delete_name">Rider Name:</label>
+            <input type="text" id="delete_name" name="name" required>
+            <input type="submit" name="delete_rider_by_name" value="Delete Rider" class="delete-btn">
+        </form>
+
+        <a href="../View/riders.php" class="back-link">Back to Riders List</a>
+    </div>
+>>>>>>> 1ce2214 (my file)
 </body>
 </html>
