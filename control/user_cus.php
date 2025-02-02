@@ -4,13 +4,12 @@ include "../Model/db.php";
 
 // Ensure user is logged in
 if (!isset($_SESSION['email'])) {
-    header("Location: ../view/login.php");
+    header("Location: ../View/login.php");
     exit();
 }
 
 // Function to fetch customers from the database
-function getCustomers()
- {
+function getCustomers() {
     global $conn;
     $query = "SELECT * FROM customer";
     $result = mysqli_query($conn, $query);
@@ -74,30 +73,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
-    // Delete Customer
-if ($action == 'delete') {
-    $id = (int) $_POST['id']; // Ensure the ID is an integer
-    if ($id > 0) {
-        // Delete related orders first
-        $deleteOrdersQuery = "DELETE FROM orders WHERE id = $id";
-        if (!mysqli_query($conn, $deleteOrdersQuery)) {
-            echo "Error deleting related orders: " . mysqli_error($conn);
-            exit();
+        // Delete Customer
+        if ($action == 'delete') {
+            $id = (int) $_POST['id']; // Ensure the ID is an integer
+            if ($id > 0) {
+                $query = "DELETE FROM customer WHERE id=$id";
+                if (mysqli_query($conn, $query)) {
+                    header("Location: user_cus.php");
+                    exit();
+                } else {
+                    echo "Error deleting customer: " . mysqli_error($conn);
+                }
+            } else {
+                echo "Invalid customer ID.";
+            }
         }
-
-        // Then delete the customer
-        $query = "DELETE FROM customer WHERE id = $id";
-        if (mysqli_query($conn, $query)) {
-            header("Location: user_cus.php");
-            exit();
-        } else {
-            echo "Error deleting customer: " . mysqli_error($conn);
-        }
-    } else {
-        echo "Invalid customer ID.";
-    }
-}
-
     }
 }
 ?>
@@ -106,6 +96,7 @@ if ($action == 'delete') {
 <html lang="en">
 <head>
     <title>Manage Customers</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles_r.css">
 </head>
 <body>
     <h2>Manage Customers</h2>
@@ -166,47 +157,6 @@ if ($action == 'delete') {
         </form>
     </div>
 
-    <script>
-        function addCustomer() {
-            document.getElementById("formAction").value = "add";
-            document.getElementById("formTitle").textContent = "Add Customer";
-            document.getElementById("form").reset();
-            document.getElementById("customerForm").style.display = "block";
-        }
-
-        function editCustomer(id) {
-            // Set the ID of the customer
-            document.getElementById("customerId").value = id;
-            document.getElementById("formAction").value = "edit";
-            document.getElementById("formTitle").textContent = "Edit Customer";
-            document.getElementById("customerForm").style.display = "block";
-        }
-
-        function deleteCustomer(id) {
-            if (confirm("Are you sure you want to delete this customer?")) {
-                const form = document.createElement("form");
-                form.method = "POST";
-                form.action = "";
-                const actionField = document.createElement("input");
-                actionField.type = "hidden";
-                actionField.name = "action";
-                actionField.value = "delete";
-                form.appendChild(actionField);
-
-                const idField = document.createElement("input");
-                idField.type = "hidden";
-                idField.name = "id";
-                idField.value = id;
-                form.appendChild(idField);
-
-                document.body.appendChild(form);
-                form.submit();
-            }
-        }
-
-        function closeForm() {
-            document.getElementById("customerForm").style.display = "none";
-        }
-    </script>
+    <script src="../JS/u_cus.js"></script>
 </body>
 </html>
