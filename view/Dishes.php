@@ -33,6 +33,7 @@ if (isset($_GET['restaurant'])) {
 <html lang="en">
 <head>
     <title><?php echo $pageTitle; ?></title>
+    <link rel="stylesheet" type="text/css" href="../css/styles_r.css">
 </head>
 <body>
 
@@ -46,13 +47,10 @@ if (isset($_GET['restaurant'])) {
         <p>Please <a href="../view/login.php">log in</a> to leave a review.</p>
     <?php endif; ?>
     <?php
-    if ($result->num_rows > 0)
-    {
-        while ($row = $result->fetch_assoc())
-        {
-            if (isset($row['d_id']))
-            {
-                echo "<div>
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            if (isset($row['d_id'])) {
+                echo "<div class='dish-container'>
                         <h2>" . htmlspecialchars($row['title']) . "</h2>
                         <p>
                             <a href='../control/order_food.php?d_id=" . $row['d_id'] . "'>
@@ -60,14 +58,13 @@ if (isset($_GET['restaurant'])) {
                             </a>
                         </p>
                         <p>" . htmlspecialchars($row['slogan']) . "</p>
-                        <p>Price: $ " . number_format($row['price'], 2) . "</p>
-                      </div><hr>";
-            // Fetch the order ID for the logged-in user
+                        <p>Price: $" . number_format($row['price'], 2) . "</p>";
+
                 if (isset($_SESSION['id'])) {
                     $customer_id = $_SESSION['id'];
-                    $order_result = getOrderByCustomerId($customer_id); // Function to get order by customer ID
+                    $order_result = getOrderByCustomerId($customer_id);
                     if ($order_result) {
-                        $order_id = $order_result['o_id']; // Assuming this returns the order ID
+                        $order_id = $order_result['o_id'];
                         echo "<form method='GET' action='../view/reviews.php'>
                                 <input type='hidden' name='dish_id' value='" . $row['d_id'] . "'>
                                 <input type='hidden' name='order_id' value='" . $order_id . "'>
@@ -86,11 +83,8 @@ if (isset($_GET['restaurant'])) {
     } else {
         echo "No dishes available.";
     }
-            
 
-    // Close the connection
     closeCon($conn);
     ?>
-
 </body>
 </html>
